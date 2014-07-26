@@ -34,6 +34,8 @@
 - (void)randomizeQuestionGlyph;
 - (void)updateAnswerGlyphWithEvent:(UIEvent*)event;
 
+- (IBAction)showMe:(id)sender;
+
 @end
 
 @implementation IGTViewController
@@ -62,7 +64,6 @@
     }
     
     [self loadGlyphs];
-    [self randomizeQuestionGlyph];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,8 +76,29 @@
     self.canDraw = NO;
     self.lastDot = nil;
     [self.endOfAnswerPathToTouch removeAllPoints];
+
+    if (glyph != self.answerGlyph)
+    {
+        [self.answerPathSoFar removeAllPoints];
+
+        BOOL setOrigin = NO;
+        for (NSSet* pair in glyph) {
+            for (NSNumber* point in pair)
+            {
+                if (!setOrigin)
+                {
+                    [self.answerPathSoFar moveToPoint:[self.view viewWithTag:[point integerValue]].center];
+                    setOrigin = YES;
+                }
+                else
+                {
+                    [self.answerPathSoFar addLineToPoint:[self.view viewWithTag:[point integerValue]].center];
+                }
+            }
+        }
+    }
     
-    UIColor* c = [UIColor yellowColor];
+    UIColor* c;
     
     BOOL match = [self.answerGlyph isEqual:self.questionGlyph];
     if (match)
@@ -137,6 +159,7 @@
         }
         
         weakSelf.glyphs = [unorderedGlyphs copy];
+        [weakSelf randomizeQuestionGlyph];
     }];
 }
 
@@ -156,13 +179,17 @@
 
 - (void)randomizeQuestionGlyph
 {
-    // TODO
+    int idx = arc4random_uniform((int)self.glyphs.count);
+    NSArray* allKeys = [self.glyphs allKeys];
+    NSString* name = allKeys[idx];
+    self.questionGlyph = self.glyphs[name];
 }
 
 - (void)setQuestionGlyph:(NSSet *)questionGlyph
 {
-    self.glyphNameLabel.textColor = [UIColor orangeColor];
+    self.glyphNameLabel.textColor = [UIColor yellowColor];
     self.glyphNameLabel.text = [self nameOfGlyph:questionGlyph];
+    self->_questionGlyph = questionGlyph;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -262,6 +289,13 @@
     }
     
     return result;
+}
+
+#pragma mark - IBActions
+
+- (IBAction)showMe:(id)sender
+{
+    [self drawAndFadeGlyph:self.questionGlyph];
 }
 
 @end
