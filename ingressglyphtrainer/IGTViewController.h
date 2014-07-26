@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IGTViewController : UIViewController
+@interface IGTViewController : UIViewController <UIAlertViewDelegate>
 
 @end

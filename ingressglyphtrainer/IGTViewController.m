@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSOperationQueue* bgQueue;
 @property (weak, nonatomic) UITouch* drawingTouch;
 @property (strong, nonatomic) NSDictionary* glyphs;
+@property (strong, nonatomic) NSMutableDictionary* userGlyphs;
 @property (strong, nonatomic) NSSet* questionGlyph;
 @property (strong, nonatomic) NSMutableSet* answerGlyph;
 @property (strong, nonatomic) UIView* lastDot;
@@ -93,6 +94,7 @@
                 else
                 {
                     [self.answerPathSoFar addLineToPoint:[self.view viewWithTag:[point integerValue]].center];
+                    setOrigin = NO;
                 }
             }
         }
@@ -111,6 +113,17 @@
     }
     
     self.glyphNameLabel.text = [self nameOfGlyph:glyph];
+    if (self.glyphNameLabel.text.length == 0)
+    {
+        UIAlertView* learningView = [[UIAlertView alloc] initWithTitle:@"Whoa!"
+                                                               message:@"Which glyph was that?"
+                                                              delegate:self
+                                                     cancelButtonTitle:@"Don't save"
+                                                     otherButtonTitles:@"Save", nil];
+        learningView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [learningView show];
+        return;
+    }
     
     self.drawableView.drawingColor = c;
     [self.drawableView setNeedsDisplay];
@@ -157,7 +170,8 @@
             
             unorderedGlyphs[glyphName] = [unorderedPairs copy];
         }
-        
+
+        weakSelf.userGlyphs = [orderedGlyphs mutableCopy];
         weakSelf.glyphs = [unorderedGlyphs copy];
         [weakSelf randomizeQuestionGlyph];
     }];
@@ -296,6 +310,27 @@
 - (IBAction)showMe:(id)sender
 {
     [self drawAndFadeGlyph:self.questionGlyph];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        NSString* glyphPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        glyphPath = [glyphPath stringByAppendingPathComponent:@"glyphs.plist"];
+        NSString* name = [alertView textFieldAtIndex:0].text;
+        if (name.length > 0)
+        {
+            NSMutableArray* pairs = [NSMutableArray arrayWithCapacity:self.answerGlyph.count];
+            for (NSSet* pair in self.answerGlyph) {
+                [pairs addObject:[pair allObjects]];
+            }
+            [self.userGlyphs setObject:pairs forKey:name];
+            [self.userGlyphs writeToFile:glyphPath atomically:NO];
+        }
+    }
 }
 
 @end
