@@ -14,10 +14,15 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self->_bezierPaths = [NSMutableSet set];
     }
     return self;
 }
 
+- (void)awakeFromNib
+{
+    self->_bezierPaths = [NSMutableSet set];
+}
 
 - (void)drawRect:(CGRect)rect
 {
@@ -27,7 +32,11 @@
     }
     
     [self.drawingColor setStroke];
-    [self.bezierPath stroke];
+    
+    for (UIBezierPath* path in self.bezierPaths)
+    {
+        [path stroke];
+    }
 }
 
 

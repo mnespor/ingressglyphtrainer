@@ -21,7 +21,6 @@
 		1CD8766119835B4A00292A47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD8764319835B4A00292A47 /* UIKit.framework */; };
 		1CD8766919835B4A00292A47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CD8766719835B4A00292A47 /* InfoPlist.strings */; };
 		1CD8766B19835B4A00292A47 /* ingressglyphtrainerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD8766A19835B4A00292A47 /* ingressglyphtrainerTests.m */; };
-		1CD876761983FFDF00292A47 /* IGTDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD876751983FFDF00292A47 /* IGTDotView.m */; };
 		1CD876791984042C00292A47 /* IGTDrawableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD876781984042C00292A47 /* IGTDrawableView.m */; };
 		1CD8767B19840EEE00292A47 /* glyphs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CD8767A19840EEE00292A47 /* glyphs.plist */; };
 /* End PBXBuildFile section */
@@ -56,8 +55,6 @@
 		1CD8766619835B4A00292A47 /* ingressglyphtrainerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ingressglyphtrainerTests-Info.plist"; sourceTree = "<group>"; };
 		1CD8766819835B4A00292A47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1CD8766A19835B4A00292A47 /* ingressglyphtrainerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ingressglyphtrainerTests.m; sourceTree = "<group>"; };
-		1CD876741983FFDF00292A47 /* IGTDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGTDotView.h; sourceTree = "<group>"; };
-		1CD876751983FFDF00292A47 /* IGTDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGTDotView.m; sourceTree = "<group>"; };
 		1CD876771984042C00292A47 /* IGTDrawableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGTDrawableView.h; sourceTree = "<group>"; };
 		1CD876781984042C00292A47 /* IGTDrawableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGTDrawableView.m; sourceTree = "<group>"; };
 		1CD8767A19840EEE00292A47 /* glyphs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = glyphs.plist; sourceTree = "<group>"; };
@@ -127,8 +124,6 @@
 				1CD8765519835B4A00292A47 /* IGTViewController.m */,
 				1CD8765719835B4A00292A47 /* Images.xcassets */,
 				1CD8764619835B4A00292A47 /* Supporting Files */,
-				1CD876741983FFDF00292A47 /* IGTDotView.h */,
-				1CD876751983FFDF00292A47 /* IGTDotView.m */,
 				1CD876771984042C00292A47 /* IGTDrawableView.h */,
 				1CD876781984042C00292A47 /* IGTDrawableView.m */,
 				1CD8767A19840EEE00292A47 /* glyphs.plist */,
@@ -265,7 +260,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CD8765619835B4A00292A47 /* IGTViewController.m in Sources */,
-				1CD876761983FFDF00292A47 /* IGTDotView.m in Sources */,
 				1CD8764C19835B4A00292A47 /* main.m in Sources */,
 				1CD8765019835B4A00292A47 /* IGTAppDelegate.m in Sources */,
 				1CD876791984042C00292A47 /* IGTDrawableView.m in Sources */,

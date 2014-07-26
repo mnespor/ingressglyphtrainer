@@ -25,60 +25,104 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-si-Fd1" userLabel="Dot View Top Center" customClass="IGTDotView">
+                            <view opaque="NO" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-si-Fd1" userLabel="Dot View Top Center">
                                 <rect key="frame" x="140" y="113" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="d41-0K-vI6"/>
+                                    <constraint firstAttribute="width" constant="40" id="h0K-Aa-6Al"/>
+                                </constraints>
                             </view>
-                            <view opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSj-yp-1Gb" userLabel="Dot View Outside Upper Right" customClass="IGTDotView">
+                            <view opaque="NO" tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSj-yp-1Gb" userLabel="Dot View Outside Upper Right">
                                 <rect key="frame" x="270" y="189" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="UGT-11-Qca"/>
+                                    <constraint firstAttribute="width" constant="40" id="Vot-BX-Y5p"/>
+                                </constraints>
                             </view>
-                            <view opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xd1-bL-Mjf" userLabel="Dot View Outside Lower Right" customClass="IGTDotView">
+                            <view opaque="NO" tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xd1-bL-Mjf" userLabel="Dot View Outside Lower Right">
                                 <rect key="frame" x="270" y="339" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="86E-OZ-816"/>
+                                    <constraint firstAttribute="height" constant="40" id="XJt-56-a1a"/>
+                                </constraints>
                             </view>
-                            <view opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tvd-dg-y8H" userLabel="Dot View Bottom Center" customClass="IGTDotView">
+                            <view opaque="NO" tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tvd-dg-y8H" userLabel="Dot View Bottom Center">
                                 <rect key="frame" x="140" y="414" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="fFC-OE-Wyi"/>
+                                    <constraint firstAttribute="height" constant="40" id="hK1-dL-vLN"/>
+                                </constraints>
                             </view>
-                            <view opaque="NO" tag="5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ueN-Ye-iMa" userLabel="Dot View Outside Lower Left" customClass="IGTDotView">
+                            <view opaque="NO" tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueN-Ye-iMa" userLabel="Dot View Outside Lower Left">
                                 <rect key="frame" x="10" y="339" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="3u9-8v-3E3"/>
+                                    <constraint firstAttribute="height" constant="40" id="4v9-MH-k9x"/>
+                                </constraints>
                             </view>
-                            <view opaque="NO" tag="6" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m9h-9t-znu" userLabel="Dot View Outside Upper Left" customClass="IGTDotView">
+                            <view opaque="NO" tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m9h-9t-znu" userLabel="Dot View Outside Upper Left">
                                 <rect key="frame" x="10" y="189" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="4Z9-hS-hSw"/>
+                                    <constraint firstAttribute="height" constant="40" id="b34-Vf-d4b"/>
+                                </constraints>
                             </view>
-                            <view opaque="NO" tag="10" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0OL-1s-b7Z" userLabel="Dot View Inside Lower Left" customClass="IGTDotView">
+                            <view opaque="NO" tag="10" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0OL-1s-b7Z" userLabel="Dot View Inside Lower Left">
                                 <rect key="frame" x="75" y="301" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Sde-Ge-cd4"/>
+                                    <constraint firstAttribute="width" constant="40" id="eyk-1m-eei"/>
+                                </constraints>
                             </view>
-                            <view opaque="NO" tag="7" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kg3-Ee-yiM" userLabel="Dot View Inside Upper Left" customClass="IGTDotView">
+                            <view opaque="NO" tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kg3-Ee-yiM" userLabel="Dot View Inside Upper Left">
                                 <rect key="frame" x="75" y="226" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Xhw-S1-KYN"/>
+                                    <constraint firstAttribute="height" constant="40" id="aEn-eD-SoV"/>
+                                </constraints>
                             </view>
-                            <view opaque="NO" tag="8" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpH-q0-rp1" userLabel="Dot View Inside Upper Right" customClass="IGTDotView">
+                            <view opaque="NO" tag="8" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpH-q0-rp1" userLabel="Dot View Inside Upper Right">
                                 <rect key="frame" x="205" y="226" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cCi-P3-Uhw"/>
+                                    <constraint firstAttribute="width" constant="40" id="v61-La-lVb"/>
+                                </constraints>
                             </view>
-                            <view opaque="NO" tag="9" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CBR-1l-18l" userLabel="Dot View Inside Lower Right" customClass="IGTDotView">
+                            <view opaque="NO" tag="9" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBR-1l-18l" userLabel="Dot View Inside Lower Right">
                                 <rect key="frame" x="205" y="301" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="E9a-W2-caq"/>
+                                    <constraint firstAttribute="height" constant="40" id="oUl-uF-szl"/>
+                                </constraints>
                             </view>
-                            <view opaque="NO" tag="11" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1FX-Jj-WyU" userLabel="Dot View Center" customClass="IGTDotView">
+                            <view opaque="NO" tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1FX-Jj-WyU" userLabel="Dot View Center">
                                 <rect key="frame" x="140" y="264" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Zib-pT-BPe"/>
+                                    <constraint firstAttribute="height" constant="40" id="qpj-pr-AIw"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ENLIGHTENMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="aGu-OO-Udy">
                                 <rect key="frame" x="20" y="20" width="280" height="38"/>
@@ -145,6 +189,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="drawableView" destination="kvh-xC-eCb" id="ICg-rd-9Ph"/>
+                        <outlet property="glyphNameLabel" destination="aGu-OO-Udy" id="eST-rZ-QGc"/>
                         <outletCollection property="dots" destination="bpH-q0-rp1" id="qUd-QE-gFR"/>
                         <outletCollection property="dots" destination="xlp-si-Fd1" id="UTN-YW-q3e"/>
                         <outletCollection property="dots" destination="zSj-yp-1Gb" id="VAM-fe-C2p"/>

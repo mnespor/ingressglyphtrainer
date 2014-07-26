@@ -10,7 +10,7 @@
 
 @interface IGTDrawableView : UIView
 
-@property (strong, nonatomic) UIBezierPath* bezierPath;
+@property (readonly) NSMutableSet* bezierPaths;
 @property (strong, nonatomic) UIColor* drawingColor;
 
 @end
