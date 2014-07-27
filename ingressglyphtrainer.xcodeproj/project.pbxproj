@@ -125,13 +125,13 @@
 				1CD8765119835B4A00292A47 /* Main.storyboard */,
 				1CD8765419835B4A00292A47 /* IGTViewController.h */,
 				1CD8765519835B4A00292A47 /* IGTViewController.m */,
+				1CBC110819846BDD00C94139 /* IGTGlyphListTableViewController.h */,
+				1CBC110919846BDD00C94139 /* IGTGlyphListTableViewController.m */,
 				1CD8765719835B4A00292A47 /* Images.xcassets */,
 				1CD8764619835B4A00292A47 /* Supporting Files */,
 				1CD876771984042C00292A47 /* IGTDrawableView.h */,
 				1CD876781984042C00292A47 /* IGTDrawableView.m */,
 				1CD8767A19840EEE00292A47 /* glyphs.plist */,
-				1CBC110819846BDD00C94139 /* IGTGlyphListTableViewController.h */,
-				1CBC110919846BDD00C94139 /* IGTGlyphListTableViewController.m */,
 			);
 			path = ingressglyphtrainer;
 			sourceTree = "<group>";
