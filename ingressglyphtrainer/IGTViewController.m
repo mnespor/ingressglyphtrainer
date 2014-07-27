@@ -261,8 +261,8 @@
         if (self.lastDot != nil)
         {
             [self.answerGlyph addObject:[NSSet setWithObjects:
-                                         [NSNumber numberWithInt:self.lastDot.tag],
-                                         [NSNumber numberWithInt:potentialDot.tag],
+                                         [NSNumber numberWithInteger:self.lastDot.tag],
+                                         [NSNumber numberWithInteger:potentialDot.tag],
                                          nil]];
         }
         else
