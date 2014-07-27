@@ -124,16 +124,13 @@
                                     <constraint firstAttribute="height" constant="40" id="qpj-pr-AIw"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ENLIGHTENMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="aGu-OO-Udy">
-                                <rect key="frame" x="20" y="20" width="280" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="21"/>
-                                <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRE-nH-fUR">
-                                <rect key="frame" x="20" y="518" width="65" height="30"/>
+                                <rect key="frame" x="0.0" y="518" width="85" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="M4Q-bf-guh"/>
+                                    <constraint firstAttribute="width" constant="85" id="wLA-vU-gRU"/>
+                                </constraints>
                                 <state key="normal" title="Show Me">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,23 +140,37 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWQ-6a-iyX">
-                                <rect key="frame" x="231" y="518" width="69" height="30"/>
+                                <rect key="frame" x="231" y="518" width="89" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MMI-QY-LYM"/>
+                                    <constraint firstAttribute="width" constant="89" id="sdz-TF-Wff"/>
+                                </constraints>
                                 <state key="normal" title="All Glyphs">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="F4f-yv-0oz" kind="modal" id="4gJ-U6-XmU"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ENLIGHTENMENT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aGu-OO-Udy">
+                                <rect key="frame" x="20" y="30" width="280" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="21"/>
+                                <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="m9h-9t-znu" secondAttribute="centerX" constant="130" id="2CS-IR-AmA"/>
                             <constraint firstAttribute="centerY" secondItem="Tvd-dg-y8H" secondAttribute="centerY" constant="-150" id="2kP-SQ-hdf"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kvh-xC-eCb" secondAttribute="bottom" id="6HF-24-AIn"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="yWQ-6a-iyX" secondAttribute="bottom" constant="20" id="6Vf-6L-qLM"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="yWQ-6a-iyX" secondAttribute="bottom" id="6Vf-6L-qLM"/>
                             <constraint firstAttribute="centerX" secondItem="xd1-bL-Mjf" secondAttribute="centerX" constant="-130" id="A6i-2m-CA6"/>
                             <constraint firstAttribute="centerX" secondItem="bpH-q0-rp1" secondAttribute="centerX" constant="-65" id="AuT-gp-nER"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="IRE-nH-fUR" secondAttribute="bottom" constant="20" id="CVf-RR-tqP"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="IRE-nH-fUR" secondAttribute="bottom" id="CVf-RR-tqP"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="GLi-WJ-cee" secondAttribute="bottom" id="Dw5-Ls-iMy"/>
                             <constraint firstAttribute="trailing" secondItem="kvh-xC-eCb" secondAttribute="trailing" id="LdV-lK-zsN"/>
                             <constraint firstAttribute="centerY" secondItem="Kg3-Ee-yiM" secondAttribute="centerY" constant="38" id="LvY-eq-dbs"/>
@@ -177,10 +188,10 @@
                             <constraint firstAttribute="centerY" secondItem="xlp-si-Fd1" secondAttribute="centerY" constant="151" id="ZN2-QI-rNV"/>
                             <constraint firstAttribute="centerY" secondItem="zSj-yp-1Gb" secondAttribute="centerY" constant="75" id="f0W-Fu-Xe1"/>
                             <constraint firstAttribute="centerY" secondItem="0OL-1s-b7Z" secondAttribute="centerY" constant="-37" id="g1S-lh-l9y"/>
-                            <constraint firstAttribute="trailing" secondItem="yWQ-6a-iyX" secondAttribute="trailing" constant="20" id="gcW-4f-JSP"/>
+                            <constraint firstAttribute="trailing" secondItem="yWQ-6a-iyX" secondAttribute="trailing" id="gcW-4f-JSP"/>
                             <constraint firstAttribute="centerX" secondItem="Kg3-Ee-yiM" secondAttribute="centerX" constant="65" id="hZ1-j8-Lz5"/>
                             <constraint firstItem="kvh-xC-eCb" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="i7F-jo-XLX"/>
-                            <constraint firstItem="IRE-nH-fUR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="j5U-DS-eRF"/>
+                            <constraint firstItem="IRE-nH-fUR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="j5U-DS-eRF"/>
                             <constraint firstAttribute="centerY" secondItem="1FX-Jj-WyU" secondAttribute="centerY" id="kYJ-Mn-ocN"/>
                             <constraint firstAttribute="centerX" secondItem="CBR-1l-18l" secondAttribute="centerX" constant="-65" id="mGR-Iv-pLW"/>
                             <constraint firstItem="GLi-WJ-cee" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qqY-FI-fHF"/>
@@ -208,6 +219,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Glyph List Table View Controller - All Glyphs-->
+        <scene sceneID="QyY-Yt-uRv">
+            <objects>
+                <tableViewController id="ROV-zS-F39" customClass="IGTGlyphListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nnH-Yb-SdB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" id="eC4-Uj-q7H">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="ROV-zS-F39" id="pKB-Rh-Two"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GlyphCell" id="1Re-ln-h8w">
+                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Re-ln-h8w" id="ycm-Ga-Ltq">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Pfa-3H-SKc">
+                                            <rect key="frame" x="20" y="11" width="280" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="Kma-kT-Iuf" kind="unwind" unwindAction="unwindFromGlyphListToGlyphCanvas:" id="zjW-z4-9AT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ROV-zS-F39" id="GKG-zm-ptf"/>
+                            <outlet property="delegate" destination="ROV-zS-F39" id="oq2-iv-pRQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="All Glyphs" id="rYY-kA-ssu"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcj-ba-z86" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Kma-kT-Iuf" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="951" y="87"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6av-Tt-lcq">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="F4f-yv-0oz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="SuG-t2-38D"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Njt-4f-lDH">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ROV-zS-F39" kind="relationship" relationship="rootViewController" id="ezO-Gj-NY1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meH-MV-JI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="537" y="111"/>
         </scene>
     </scenes>
     <resources>

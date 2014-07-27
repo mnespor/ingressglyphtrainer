@@ -8,6 +8,7 @@
 
 #import "IGTViewController.h"
 #import "IGTDrawableView.h"
+#import "IGTGlyphListTableViewController.h"
 
 @interface IGTViewController ()
 
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) NSOperationQueue* bgQueue;
 @property (weak, nonatomic) UITouch* drawingTouch;
 @property (strong, nonatomic) NSDictionary* glyphs;
+@property (strong, nonatomic) NSArray* sortedGlyphNames;
 @property (strong, nonatomic) NSMutableDictionary* userGlyphs;
 @property (strong, nonatomic) NSSet* questionGlyph;
 @property (strong, nonatomic) NSMutableSet* answerGlyph;
@@ -113,7 +115,7 @@
     }
     
     self.glyphNameLabel.text = [self nameOfGlyph:glyph];
-    if (self.glyphNameLabel.text.length == 0)
+    if (NO && self.glyphNameLabel.text.length == 0)
     {
         UIAlertView* learningView = [[UIAlertView alloc] initWithTitle:@"Whoa!"
                                                                message:@"Which glyph was that?"
@@ -129,7 +131,7 @@
     [self.drawableView setNeedsDisplay];
     
     __weak __typeof(self) weakSelf = self;
-    [UIView animateWithDuration:0.7
+    [UIView animateWithDuration:0.8
                      animations:^{
                          weakSelf.drawableView.alpha = 0.0;
                      }
@@ -173,6 +175,10 @@
 
         weakSelf.userGlyphs = [orderedGlyphs mutableCopy];
         weakSelf.glyphs = [unorderedGlyphs copy];
+        weakSelf.sortedGlyphNames = [[unorderedGlyphs allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                return [obj1 caseInsensitiveCompare:obj2];
+            }];
+
         [weakSelf randomizeQuestionGlyph];
     }];
 }
@@ -201,7 +207,6 @@
 
 - (void)setQuestionGlyph:(NSSet *)questionGlyph
 {
-    self.glyphNameLabel.textColor = [UIColor yellowColor];
     self.glyphNameLabel.text = [self nameOfGlyph:questionGlyph];
     self->_questionGlyph = questionGlyph;
 }
@@ -331,6 +336,33 @@
             [self.userGlyphs writeToFile:glyphPath atomically:NO];
         }
     }
+}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue.destinationViewController topViewController] isKindOfClass:[IGTGlyphListTableViewController class]])
+    {
+        IGTGlyphListTableViewController* dest = (IGTGlyphListTableViewController*)[segue.destinationViewController topViewController];
+        dest.search = nil;
+        dest.glyphNames = self.sortedGlyphNames;
+    }
+}
+
+- (IBAction)unwindFromGlyphListToGlyphCanvas:(UIStoryboardSegue*)segue
+{
+    IGTGlyphListTableViewController* tvc = (IGTGlyphListTableViewController*)segue.sourceViewController;
+    if ([tvc.tableView indexPathsForSelectedRows].count > 0)
+    {
+        NSIndexPath* idx = [[tvc.tableView indexPathsForSelectedRows] firstObject];
+        self.questionGlyph = self.glyphs[tvc.filteredNames[idx.row]];
+    }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 @end
