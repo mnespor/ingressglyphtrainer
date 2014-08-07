@@ -7,6 +7,7 @@
 //
 
 #import "IGTGlyphListTableViewController.h"
+#import "IGTDrawableView.h"
 
 @interface IGTGlyphListTableViewController ()
 
@@ -35,10 +36,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setGlyphNames:(NSArray *)glyphNames
+- (void)setGlyphs:(NSDictionary *)glyphs
 {
-    self->_glyphNames = glyphNames;
-    self.filteredNames = glyphNames;
+    self->_glyphs = glyphs;
+    self->_glyphNames = [[glyphs allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [obj1 caseInsensitiveCompare:obj2];
+    }];
+    self.filteredNames = self->_glyphNames;
     [(UITableView*)self.view reloadData];
 }
 
@@ -85,7 +89,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GlyphCell" forIndexPath:indexPath];
-    ((UILabel*)[cell viewWithTag:1]).text = self.filteredNames[indexPath.row];
+    NSString* name = self.filteredNames[indexPath.row];
+    ((UILabel*)[cell viewWithTag:1]).text = name;
+    IGTDrawableView* drawableView = (IGTDrawableView*)[cell viewWithTag:2];
+    drawableView.drawingColor = [UIColor whiteColor];
+    [drawableView setGlyph:self.glyphs[name]];
     return cell;
 }
 

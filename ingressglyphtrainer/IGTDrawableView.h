@@ -13,4 +13,8 @@
 @property (readonly) NSMutableSet* bezierPaths;
 @property (strong, nonatomic) UIColor* drawingColor;
 
+// works if this view is square. If not, well...
+- (CGPoint)pointForDotNumbered:(int)dot;
+- (void)setGlyph:(NSSet*)glyph;
+
 @end

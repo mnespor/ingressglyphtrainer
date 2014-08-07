@@ -19,7 +19,6 @@
 @property (strong, nonatomic) NSOperationQueue* bgQueue;
 @property (weak, nonatomic) UITouch* drawingTouch;
 @property (strong, nonatomic) NSDictionary* glyphs;
-@property (strong, nonatomic) NSArray* sortedGlyphNames;
 @property (strong, nonatomic) NSMutableDictionary* userGlyphs;
 @property (strong, nonatomic) NSSet* questionGlyph;
 @property (strong, nonatomic) NSMutableSet* answerGlyph;
@@ -175,10 +174,6 @@
 
         weakSelf.userGlyphs = [orderedGlyphs mutableCopy];
         weakSelf.glyphs = [unorderedGlyphs copy];
-        weakSelf.sortedGlyphNames = [[unorderedGlyphs allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                return [obj1 caseInsensitiveCompare:obj2];
-            }];
-
         [weakSelf randomizeQuestionGlyph];
     }];
 }
@@ -346,7 +341,7 @@
     {
         IGTGlyphListTableViewController* dest = (IGTGlyphListTableViewController*)[segue.destinationViewController topViewController];
         dest.search = nil;
-        dest.glyphNames = self.sortedGlyphNames;
+        dest.glyphs = self.glyphs;
     }
 }
 
@@ -358,6 +353,10 @@
         NSIndexPath* idx = [[tvc.tableView indexPathsForSelectedRows] firstObject];
         self.questionGlyph = self.glyphs[tvc.filteredNames[idx.row]];
     }
+}
+
+- (IBAction)cancelGlyphList:(UIStoryboardSegue*)segue
+{
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle

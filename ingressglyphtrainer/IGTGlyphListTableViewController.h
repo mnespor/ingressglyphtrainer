@@ -10,7 +10,8 @@
 
 @interface IGTGlyphListTableViewController : UITableViewController <UISearchBarDelegate>
 
-@property (strong, nonatomic) NSArray* glyphNames;
+@property (readonly) NSArray* glyphNames;
+@property (strong, nonatomic) NSDictionary* glyphs;
 @property (strong, nonatomic) NSArray* filteredNames;
 @property (copy, nonatomic) NSString* search;
 
