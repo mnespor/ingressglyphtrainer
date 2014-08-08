@@ -31,7 +31,7 @@
 
 - (void)loadGlyphs;
 - (UIView*)viewForTouch:(UITouch*)touch event:(UIEvent*)event;
-- (void)drawAndFadeGlyph:(NSSet*)glyph;
+- (void)drawAndFadeGlyph:(NSSet*)glyph withDuration:(CGFloat)duration;
 - (NSString*)nameOfGlyph:(NSSet*)glyph;
 - (void)randomizeQuestionGlyph;
 - (void)updateAnswerGlyphWithEvent:(UIEvent*)event;
@@ -73,7 +73,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)drawAndFadeGlyph:(NSSet *)glyph
+- (void)drawAndFadeGlyph:(NSSet *)glyph withDuration:(CGFloat)duration
 {
     self.canDraw = NO;
     self.lastDot = nil;
@@ -130,7 +130,7 @@
     [self.drawableView setNeedsDisplay];
     
     __weak __typeof(self) weakSelf = self;
-    [UIView animateWithDuration:0.8
+    [UIView animateWithDuration:duration
                      animations:^{
                          weakSelf.drawableView.alpha = 0.0;
                      }
@@ -222,7 +222,7 @@
 {
     if ([touches containsObject:self.drawingTouch])
     {
-        [self drawAndFadeGlyph:self.answerGlyph];
+        [self drawAndFadeGlyph:self.answerGlyph withDuration:0.3];
     }
 }
 
@@ -231,6 +231,11 @@
     if (!self.canDraw)
         return;
 
+    if (self.drawingTouch == nil)
+    {
+        self.drawingTouch = [touches anyObject];
+    }
+    
     if ([touches containsObject:self.drawingTouch])
     {
         [self updateAnswerGlyphWithEvent:event];
@@ -244,7 +249,7 @@
     // the existing bezier path, and choose a new question glyph.
     if ([touches containsObject:self.drawingTouch])
     {
-        [self drawAndFadeGlyph:self.answerGlyph];
+        [self drawAndFadeGlyph:self.answerGlyph withDuration:0.3];
     }
 }
 
@@ -309,7 +314,7 @@
 
 - (IBAction)showMe:(id)sender
 {
-    [self drawAndFadeGlyph:self.questionGlyph];
+    [self drawAndFadeGlyph:self.questionGlyph withDuration:0.8];
 }
 
 #pragma mark - UIAlertViewDelegate
