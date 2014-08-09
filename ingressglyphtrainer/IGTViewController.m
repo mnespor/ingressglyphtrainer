@@ -48,16 +48,63 @@
 
 - (NSMutableArray*)dequeueSession
 {
-    NSMutableArray* result = [NSMutableArray array];
-    // 1. Filter on enabled==YES
-    // 2. If there are fewer than 5 cards in box 1, move cards from box 0 to box 1 until
-    //    there are at least 5.
-    // 3. Add all cards from box 1 to the session.
-    // 4. If session % 2 == 0, add all cards from box 2 to the session.
-    // 5. If session % 3 == 0, add all cards from box 3 to the session.
-    // 6. If session % 7 == 0, add all cards from box 4 to the session.
-    // 7. If session % 15 == 0, add all cards from box 5 to the session.
-    // 8. Session number = session number % 15 + 1.
+    NSInteger sessionNumber = [[NSUserDefaults standardUserDefaults] integerForKey:@"sessionNumber"];
+    NSArray* enabledGlyphs = [[self.glyphs allKeys] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
+        return ![IGTGlyphDataHelpers glyphIsDisabled:glyphName];
+    }]];
+    
+    NSMutableArray* result = [NSMutableArray arrayWithCapacity:enabledGlyphs.count];
+    [result addObjectsFromArray:[enabledGlyphs filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
+        return [IGTGlyphDataHelpers boxNumberForGlyphNamed:glyphName] == 1;
+    }]]];
+    
+    if (result.count < 5)
+    {
+        // TODO: Make this lazy when Xcode 6 comes out
+        NSMutableArray* boxZero = [[enabledGlyphs filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
+            return [IGTGlyphDataHelpers boxNumberForGlyphNamed:glyphName] == 0;
+        }]] mutableCopy];
+        
+        while (result.count < 5 && boxZero.count > 0)
+        {
+            [result addObject:[boxZero firstObject]];
+            [IGTGlyphDataHelpers setBoxNumber:1 forGlyphNamed:[boxZero firstObject]];
+            [boxZero removeObjectAtIndex:0];
+        }
+    }
+    
+    if (sessionNumber % 2 == 0)
+    {
+        [result addObjectsFromArray:[enabledGlyphs filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
+            return [IGTGlyphDataHelpers boxNumberForGlyphNamed:glyphName] == 2;
+        }]]];
+    }
+    
+    if (sessionNumber % 3 == 0)
+    {
+        [result addObjectsFromArray:[enabledGlyphs filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
+            return [IGTGlyphDataHelpers boxNumberForGlyphNamed:glyphName] == 3;
+        }]]];
+    }
+    
+    if (sessionNumber % 7 == 0)
+    {
+        [result addObjectsFromArray:[enabledGlyphs filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
+            return [IGTGlyphDataHelpers boxNumberForGlyphNamed:glyphName] == 4;
+        }]]];
+    }
+    
+    if (sessionNumber % 15 == 0)
+    {
+        // then may whatever god you believe in have mercy on your soul
+        [result addObjectsFromArray:[enabledGlyphs filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
+            return [IGTGlyphDataHelpers boxNumberForGlyphNamed:glyphName] == 5;
+        }]]];
+    }
+    
+    sessionNumber = (sessionNumber % 15) + 1;
+    [[NSUserDefaults standardUserDefaults] setInteger:sessionNumber forKey:@"sessionNumber"];
+    
     return result;
 }
 
@@ -93,8 +140,6 @@
     }
     
     [self loadGlyphs];
-    
-    self.cardsLeftInThisSession = [self dequeueSession];
 }
 
 - (void)didReceiveMemoryWarning
@@ -135,10 +180,12 @@
     BOOL match = [self.answerGlyph isEqual:self.questionGlyph];
     if (match)
     {
+        [IGTGlyphDataHelpers setBoxNumber:[IGTGlyphDataHelpers boxNumberForGlyphNamed:self.glyphNameLabel.text] + 1 forGlyphNamed:self.glyphNameLabel.text];
         c = [UIColor greenColor];
     }
     else
     {
+        [IGTGlyphDataHelpers setBoxNumber:0 forGlyphNamed:self.glyphNameLabel.text];
         c = [UIColor redColor];
     }
     
@@ -223,9 +270,18 @@
 
 - (void)randomizeQuestionGlyph
 {
-    int idx = arc4random_uniform((int)self.glyphs.count);
-    NSArray* allKeys = [self.glyphs allKeys];
-    NSString* name = allKeys[idx];
+    if (self.cardsLeftInThisSession.count == 0)
+    {
+        self.cardsLeftInThisSession = [self dequeueSession];
+    }
+    
+    if (self.cardsLeftInThisSession.count == 0)
+    {
+        // uh oh. Super set I guess.
+        self.cardsLeftInThisSession = [[self.glyphs allKeys] mutableCopy];
+    }
+    NSString* name = [self.cardsLeftInThisSession firstObject];
+    [self.cardsLeftInThisSession removeObjectAtIndex:0];
     self.questionGlyph = self.glyphs[name];
 }
 
@@ -251,7 +307,7 @@
 {
     if ([touches containsObject:self.drawingTouch])
     {
-        [self drawAndFadeGlyph:self.answerGlyph withDuration:0.3];
+        [self drawAndFadeGlyph:self.answerGlyph withDuration:0.4];
     }
 }
 
@@ -278,7 +334,7 @@
     // the existing bezier path, and choose a new question glyph.
     if ([touches containsObject:self.drawingTouch])
     {
-        [self drawAndFadeGlyph:self.answerGlyph withDuration:0.3];
+        [self drawAndFadeGlyph:self.answerGlyph withDuration:0.4];
     }
 }
 
