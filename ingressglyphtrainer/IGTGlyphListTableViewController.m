@@ -92,6 +92,13 @@
     IGTGlyphTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GlyphCell" forIndexPath:indexPath];
     NSString* name = self.filteredNames[indexPath.row];
     [cell setGlyph:self.glyphs[name] name:name];
+    if (self.search.length > 0)
+    {
+        NSRange rangeOfMatch = [[name lowercaseString] rangeOfString:self.search];
+        NSMutableAttributedString* attributedString = [[NSMutableAttributedString alloc] initWithString:name];
+        [attributedString setAttributes:@{NSBackgroundColorAttributeName: [UIColor darkGrayColor]} range:rangeOfMatch];
+        [cell.glyphNameLabel setAttributedText:attributedString];
+    }
     return cell;
 }
 
