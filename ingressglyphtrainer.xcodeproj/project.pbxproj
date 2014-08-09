@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CBC110A19846BDD00C94139 /* IGTGlyphListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC110919846BDD00C94139 /* IGTGlyphListTableViewController.m */; };
+		1CBC11101995068800C94139 /* IGTGlyphTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC110F1995068800C94139 /* IGTGlyphTableViewCell.m */; };
+		1CBC11131995A14900C94139 /* IGTGlyphDataHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC11121995A14900C94139 /* IGTGlyphDataHelpers.m */; };
 		1CD8764019835B4A00292A47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD8763F19835B4A00292A47 /* Foundation.framework */; };
 		1CD8764219835B4A00292A47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD8764119835B4A00292A47 /* CoreGraphics.framework */; };
 		1CD8764419835B4A00292A47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD8764319835B4A00292A47 /* UIKit.framework */; };
@@ -39,6 +41,10 @@
 /* Begin PBXFileReference section */
 		1CBC110819846BDD00C94139 /* IGTGlyphListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGTGlyphListTableViewController.h; sourceTree = "<group>"; };
 		1CBC110919846BDD00C94139 /* IGTGlyphListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGTGlyphListTableViewController.m; sourceTree = "<group>"; };
+		1CBC110E1995068800C94139 /* IGTGlyphTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGTGlyphTableViewCell.h; sourceTree = "<group>"; };
+		1CBC110F1995068800C94139 /* IGTGlyphTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGTGlyphTableViewCell.m; sourceTree = "<group>"; };
+		1CBC11111995A14900C94139 /* IGTGlyphDataHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGTGlyphDataHelpers.h; sourceTree = "<group>"; };
+		1CBC11121995A14900C94139 /* IGTGlyphDataHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGTGlyphDataHelpers.m; sourceTree = "<group>"; };
 		1CD8763C19835B4A00292A47 /* ingressglyphtrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ingressglyphtrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD8763F19835B4A00292A47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1CD8764119835B4A00292A47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +138,10 @@
 				1CD876771984042C00292A47 /* IGTDrawableView.h */,
 				1CD876781984042C00292A47 /* IGTDrawableView.m */,
 				1CD8767A19840EEE00292A47 /* glyphs.plist */,
+				1CBC110E1995068800C94139 /* IGTGlyphTableViewCell.h */,
+				1CBC110F1995068800C94139 /* IGTGlyphTableViewCell.m */,
+				1CBC11111995A14900C94139 /* IGTGlyphDataHelpers.h */,
+				1CBC11121995A14900C94139 /* IGTGlyphDataHelpers.m */,
 			);
 			path = ingressglyphtrainer;
 			sourceTree = "<group>";
@@ -264,7 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBC11131995A14900C94139 /* IGTGlyphDataHelpers.m in Sources */,
 				1CD8765619835B4A00292A47 /* IGTViewController.m in Sources */,
+				1CBC11101995068800C94139 /* IGTGlyphTableViewCell.m in Sources */,
 				1CD8764C19835B4A00292A47 /* main.m in Sources */,
 				1CD8765019835B4A00292A47 /* IGTAppDelegate.m in Sources */,
 				1CBC110A19846BDD00C94139 /* IGTGlyphListTableViewController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "IGTGlyphListTableViewController.h"
 #import "IGTDrawableView.h"
+#import "IGTGlyphTableViewCell.h"
 
 @interface IGTGlyphListTableViewController ()
 
@@ -88,12 +89,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GlyphCell" forIndexPath:indexPath];
+    IGTGlyphTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GlyphCell" forIndexPath:indexPath];
     NSString* name = self.filteredNames[indexPath.row];
-    ((UILabel*)[cell viewWithTag:1]).text = name;
-    IGTDrawableView* drawableView = (IGTDrawableView*)[cell viewWithTag:2];
-    drawableView.drawingColor = [UIColor whiteColor];
-    [drawableView setGlyph:self.glyphs[name]];
+    [cell setGlyph:self.glyphs[name] name:name];
     return cell;
 }
 

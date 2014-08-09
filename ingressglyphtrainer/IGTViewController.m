@@ -9,6 +9,7 @@
 #import "IGTViewController.h"
 #import "IGTDrawableView.h"
 #import "IGTGlyphListTableViewController.h"
+#import "IGTGlyphDataHelpers.h"
 
 @interface IGTViewController ()
 
@@ -26,8 +27,11 @@
 @property (strong, nonatomic) UIBezierPath* answerPathSoFar;
 @property (strong, nonatomic) UIBezierPath* endOfAnswerPathToTouch;
 
+@property (strong, nonatomic) NSMutableArray* cardsLeftInThisSession;
+
 @property (nonatomic) BOOL canDraw;
 
+- (NSMutableArray*)dequeueSession;
 
 - (void)loadGlyphs;
 - (UIView*)viewForTouch:(UITouch*)touch event:(UIEvent*)event;
@@ -42,6 +46,21 @@
 
 @implementation IGTViewController
 
+- (NSMutableArray*)dequeueSession
+{
+    NSMutableArray* result = [NSMutableArray array];
+    // 1. Filter on enabled==YES
+    // 2. If there are fewer than 5 cards in box 1, move cards from box 0 to box 1 until
+    //    there are at least 5.
+    // 3. Add all cards from box 1 to the session.
+    // 4. If session % 2 == 0, add all cards from box 2 to the session.
+    // 5. If session % 3 == 0, add all cards from box 3 to the session.
+    // 6. If session % 7 == 0, add all cards from box 4 to the session.
+    // 7. If session % 15 == 0, add all cards from box 5 to the session.
+    // 8. Session number = session number % 15 + 1.
+    return result;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,6 +74,14 @@
     self.endOfAnswerPathToTouch.lineCapStyle = kCGLineCapRound;
     self.endOfAnswerPathToTouch.lineJoinStyle = kCGLineJoinRound;
     
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"sessionNumber"] == 0)
+    {
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"sessionNumber"];
+        [IGTGlyphDataHelpers setDisabledState:YES forGlyphNamed:@"ENLIGHTENED / ENLIGHTENMENT (TYPE B)"];
+        [IGTGlyphDataHelpers setDisabledState:YES forGlyphNamed:@"RESIST / RESISTANCE (TYPE B)"];
+        [IGTGlyphDataHelpers setDisabledState:YES forGlyphNamed:@"SHAPER / COLLECTIVE + BEING / HUMAN"];
+    }
+    
     self.answerGlyph = [NSMutableSet set];
     self.canDraw = YES;
     self.drawableView.drawingColor = [UIColor colorWithRed:0.5 green:0.8 blue:1.0 alpha:1.0];
@@ -66,6 +93,8 @@
     }
     
     [self loadGlyphs];
+    
+    self.cardsLeftInThisSession = [self dequeueSession];
 }
 
 - (void)didReceiveMemoryWarning
@@ -282,7 +311,6 @@
                              potentialDot.alpha = 1.0;
                          }];
         [self.answerPathSoFar addLineToPoint:self.lastDot.center];
-        NSLog(@"Path: %@", self.answerPathSoFar);
     }
     
     if (self.lastDot != nil)
