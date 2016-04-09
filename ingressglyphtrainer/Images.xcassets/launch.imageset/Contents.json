@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "dots.png",
+      "filename" : "launch.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "dots@2x.png",
+      "filename" : "launch@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "launch@3x.png",
       "scale" : "3x"
     }
   ],

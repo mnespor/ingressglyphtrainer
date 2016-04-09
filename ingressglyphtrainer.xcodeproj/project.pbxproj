@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C7F2C0C1CB98FAA008AAA02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F2C0A1CB98FAA008AAA02 /* LaunchScreen.storyboard */; };
 		1CBC110A19846BDD00C94139 /* IGTGlyphListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC110919846BDD00C94139 /* IGTGlyphListTableViewController.m */; };
 		1CBC11101995068800C94139 /* IGTGlyphTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC110F1995068800C94139 /* IGTGlyphTableViewCell.m */; };
 		1CBC11131995A14900C94139 /* IGTGlyphDataHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC11121995A14900C94139 /* IGTGlyphDataHelpers.m */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C7F2C0B1CB98FAA008AAA02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CBC110819846BDD00C94139 /* IGTGlyphListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGTGlyphListTableViewController.h; sourceTree = "<group>"; };
 		1CBC110919846BDD00C94139 /* IGTGlyphListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGTGlyphListTableViewController.m; sourceTree = "<group>"; };
 		1CBC110E1995068800C94139 /* IGTGlyphTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGTGlyphTableViewCell.h; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				1CD8764819835B4A00292A47 /* InfoPlist.strings */,
 				1CD8764B19835B4A00292A47 /* main.m */,
 				1CD8764D19835B4A00292A47 /* ingressglyphtrainer-Prefix.pch */,
+				1C7F2C0A1CB98FAA008AAA02 /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -223,6 +226,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Matthew Nespor";
 				TargetAttributes = {
+					1CD8763B19835B4A00292A47 = {
+						DevelopmentTeam = HE547YGUS5;
+					};
 					1CD8765C19835B4A00292A47 = {
 						TestTargetID = 1CD8763B19835B4A00292A47;
 					};
@@ -255,6 +261,7 @@
 				1CD8765819835B4A00292A47 /* Images.xcassets in Resources */,
 				1CD8764A19835B4A00292A47 /* InfoPlist.strings in Resources */,
 				1CD8767B19840EEE00292A47 /* glyphs.plist in Resources */,
+				1C7F2C0C1CB98FAA008AAA02 /* LaunchScreen.storyboard in Resources */,
 				1CD8765319835B4A00292A47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +310,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1C7F2C0A1CB98FAA008AAA02 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C7F2C0B1CB98FAA008AAA02 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		1CD8764819835B4A00292A47 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -406,11 +421,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ingressglyphtrainer/ingressglyphtrainer-Prefix.pch";
 				INFOPLIST_FILE = "ingressglyphtrainer/ingressglyphtrainer-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mnespor.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -420,11 +438,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ingressglyphtrainer/ingressglyphtrainer-Prefix.pch";
 				INFOPLIST_FILE = "ingressglyphtrainer/ingressglyphtrainer-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mnespor.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
