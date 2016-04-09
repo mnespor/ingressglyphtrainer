@@ -388,6 +388,9 @@
         [self.endOfAnswerPathToTouch removeAllPoints];
         [self.endOfAnswerPathToTouch moveToPoint:self.lastDot.center];
         [self.endOfAnswerPathToTouch addLineToPoint:[self.drawingTouch locationInView:self.drawableView]];
+        if (![self.drawableView.bezierPaths containsObject:self.endOfAnswerPathToTouch]) {
+            [self.drawableView.bezierPaths addObject:self.endOfAnswerPathToTouch];
+        }
     }
     
     [self.drawableView setNeedsDisplay];
