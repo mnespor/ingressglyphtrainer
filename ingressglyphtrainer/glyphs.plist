@@ -1187,6 +1187,29 @@
 			<integer>11</integer>
 		</array>
 	</array>
+	<key>INTELLIGENCE</key>
+	<array>
+		<array>
+			<integer>2</integer>
+			<integer>8</integer>
+		</array>
+		<array>
+			<integer>8</integer>
+			<integer>11</integer>
+		</array>
+		<array>
+			<integer>7</integer>
+			<integer>11</integer>
+		</array>
+		<array>
+			<integer>7</integer>
+			<integer>10</integer>
+		</array>
+		<array>
+			<integer>5</integer>
+			<integer>10</integer>
+		</array>
+	</array>
 	<key>JOURNEY</key>
 	<array>
 		<array>
@@ -2218,6 +2241,37 @@
 			<integer>7</integer>
 			<integer>8</integer>
 		</array>
+	</array>	
+	<key>TECHNOLOGY</key>
+	<array>
+		<array>
+			<integer>2</integer>
+			<integer>8</integer>
+		</array>
+		<array>
+			<integer>8</integer>
+			<integer>11</integer>
+		</array>
+		<array>
+			<integer>10</integer>
+			<integer>11</integer>
+		</array>
+		<array>
+			<integer>7</integer>
+			<integer>10</integer>
+		</array>
+		<array>
+			<integer>7</integer>
+			<integer>11</integer>
+		</array>
+		<array>
+			<integer>9</integer>
+			<integer>11</integer>
+		</array>
+		<array>
+			<integer>3</integer>
+			<integer>9</integer>
+		</array>		
 	</array>
 	<key>TOGETHER</key>
 	<array>
@@ -2266,6 +2320,49 @@
 		</array>
 		<array>
 			<integer>7</integer>
+			<integer>11</integer>
+		</array>
+	</array>
+	<key>UNBOUNDED</key>
+	<array>
+		<array>
+			<integer>3</integer>
+			<integer>4</integer>
+		</array>
+		<array>
+			<integer>4</integer>
+			<integer>5</integer>
+		</array>
+		<array>
+			<integer>5</integer>
+			<integer>6</integer>
+		</array>
+		<array>
+			<integer>1</integer>
+			<integer>6</integer>
+		</array>
+		<array>
+			<integer>1</integer>
+			<integer>2</integer>
+		</array>
+		<array>
+			<integer>2</integer>
+			<integer>9</integer>
+		</array>
+		<array>
+			<integer>9</integer>
+			<integer>10</integer>
+		</array>
+		<array>
+			<integer>10</integer>
+			<integer>7</integer>
+		</array>
+		<array>
+			<integer>7</integer>
+			<integer>8</integer>
+		</array>
+		<array>
+			<integer>8</integer>
 			<integer>11</integer>
 		</array>
 	</array>
