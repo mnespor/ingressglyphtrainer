@@ -178,6 +178,15 @@
                 }
             }
         }
+
+        if ([glyph isEqualToSet:self.glyphs[@"IMPERFECT"]]) {
+            CGPoint begin = [self.view viewWithTag:IGTDotPositionInsideUpperRight].center;
+            CGPoint end = [self.view viewWithTag:IGTDotPositionInsideLowerLeft].center;
+            CGPoint controlPoint = CGPointMake((begin.x + end.x) * 0.6, (begin.y + end.y) * 0.6);
+            [self.answerPathSoFar moveToPoint:begin];
+            [self.answerPathSoFar addQuadCurveToPoint:end
+                                         controlPoint:controlPoint];
+        }
     }
     
     UIColor* c;

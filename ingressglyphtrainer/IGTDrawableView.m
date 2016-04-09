@@ -8,21 +8,6 @@
 
 #import "IGTDrawableView.h"
 
-typedef enum
-{
-    IGTDotPositionTop = 1,
-    IGTDotPositionOutsideUpperRight = 2,
-    IGTDotPositionOutsideLowerRight = 3,
-    IGTDotPositionBottom = 4,
-    IGTDotPositionOutsideLowerLeft = 5,
-    IGTDotPositionOutsideUpperLeft = 6,
-    IGTDotPositionInsideUpperLeft = 7,
-    IGTDotPositionInsideUpperRight = 8,
-    IGTDotPositionInsideLowerRight = 9,
-    IGTDotPositionInsideLowerLeft = 10,
-    IGTDotPositionCenter = 11
-} IGTDotPosition;
-
 @implementation IGTDrawableView
 
 - (id)initWithFrame:(CGRect)frame
