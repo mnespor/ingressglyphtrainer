@@ -220,7 +220,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = IGT;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Matthew Nespor";
 				TargetAttributes = {
 					1CD8765C19835B4A00292A47 = {
@@ -348,6 +348,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -408,6 +409,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ingressglyphtrainer/ingressglyphtrainer-Prefix.pch";
 				INFOPLIST_FILE = "ingressglyphtrainer/ingressglyphtrainer-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mnespor.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -421,6 +423,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ingressglyphtrainer/ingressglyphtrainer-Prefix.pch";
 				INFOPLIST_FILE = "ingressglyphtrainer/ingressglyphtrainer-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mnespor.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -442,6 +445,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ingressglyphtrainerTests/ingressglyphtrainerTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mnespor.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -460,6 +464,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ingressglyphtrainer/ingressglyphtrainer-Prefix.pch";
 				INFOPLIST_FILE = "ingressglyphtrainerTests/ingressglyphtrainerTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mnespor.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
