@@ -47,12 +47,16 @@
 
 @implementation IGTViewController
 
+- (NSArray*)allEnabledGlyphs {
+    return [[self.glyphs allKeys] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
+        return ![IGTGlyphDataHelpers glyphIsDisabled:glyphName];
+    }]];
+}
+
 - (NSMutableArray*)dequeueSession
 {
     NSInteger sessionNumber = [[NSUserDefaults standardUserDefaults] integerForKey:@"sessionNumber"];
-    NSArray* enabledGlyphs = [[self.glyphs allKeys] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
-        return ![IGTGlyphDataHelpers glyphIsDisabled:glyphName];
-    }]];
+    NSArray* enabledGlyphs = [self allEnabledGlyphs];
     
     NSMutableArray* result = [NSMutableArray arrayWithCapacity:enabledGlyphs.count];
     [result addObjectsFromArray:[enabledGlyphs filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
@@ -279,7 +283,7 @@
     if (self.cardsLeftInThisSession.count == 0)
     {
         // uh oh. Super set I guess.
-        self.cardsLeftInThisSession = [[self.glyphs allKeys] mutableCopy];
+        self.cardsLeftInThisSession = [[self allEnabledGlyphs] mutableCopy];
     }
     NSString* name = [self.cardsLeftInThisSession firstObject];
     [self.cardsLeftInThisSession removeObjectAtIndex:0];
