@@ -10,6 +10,7 @@
 #import "IGTDrawableView.h"
 #import "IGTGlyphListTableViewController.h"
 #import "IGTGlyphDataHelpers.h"
+#include <stdlib.h>
 
 @interface IGTViewController ()
 
@@ -60,16 +61,16 @@
     
     if (result.count < 5)
     {
-        // TODO: Make this lazy when Xcode 6 comes out
         NSMutableArray* boxZero = [[enabledGlyphs filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* glyphName, NSDictionary *bindings) {
             return [IGTGlyphDataHelpers boxNumberForGlyphNamed:glyphName] == 0;
         }]] mutableCopy];
         
         while (result.count < 5 && boxZero.count > 0)
         {
-            [result addObject:[boxZero firstObject]];
-            [IGTGlyphDataHelpers setBoxNumber:1 forGlyphNamed:[boxZero firstObject]];
-            [boxZero removeObjectAtIndex:0];
+            int index = arc4random_uniform((uint32_t)boxZero.count);
+            [result addObject:boxZero[index]];
+            [IGTGlyphDataHelpers setBoxNumber:1 forGlyphNamed:boxZero[index]];
+            [boxZero removeObjectAtIndex:index];
         }
     }
     
