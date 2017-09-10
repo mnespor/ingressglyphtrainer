@@ -51,6 +51,21 @@
 			<integer>7</integer>
 		</array>
 	</array>
+	<key>AFTER</key>
+	<array>
+		<array>
+			<integer>10</integer>
+			<integer>3</integer>
+		</array>
+		<array>
+			<integer>3</integer>
+			<integer>6</integer>
+		</array>
+		<array>
+			<integer>6</integer>
+			<integer>10</integer>
+		</array>
+	</array>
 	<key>AGAIN / REPEAT</key>
 	<array>
 		<array>
@@ -167,6 +182,21 @@
 		<array>
 			<integer>1</integer>
 			<integer>11</integer>
+		</array>
+	</array>
+	<key>BEFORE</key>
+	<array>
+		<array>
+			<integer>2</integer>
+			<integer>9</integer>
+		</array>
+		<array>
+			<integer>9</integer>
+			<integer>6</integer>
+		</array>
+		<array>
+			<integer>6</integer>
+			<integer>2</integer>
 		</array>
 	</array>
 	<key>BEGIN</key>
@@ -1208,6 +1238,37 @@
 		<array>
 			<integer>5</integer>
 			<integer>10</integer>
+		</array>
+	</array>
+	<key>INTERRUPT</key>
+	<array>
+		<array>
+			<integer>1</integer>
+			<integer>6</integer>
+		</array>
+		<array>
+			<integer>6</integer>
+			<integer>4</integer>
+		</array>
+		<array>
+			<integer>4</integer>
+			<integer>2</integer>
+		</array>
+		<array>
+			<integer>2</integer>
+			<integer>9</integer>
+		</array>
+		<array>
+			<integer>9</integer>
+			<integer>7</integer>
+		</array>
+		<array>
+			<integer>7</integer>
+			<integer>6</integer>
+		</array>
+		<array>
+			<integer>6</integer>
+			<integer>11</integer>
 		</array>
 	</array>
 	<key>JOURNEY</key>
@@ -2269,6 +2330,92 @@
 			<integer>8</integer>
 		</array>
 	</array>
+	<key>SUSTAIN</key>
+	<array>
+		<array>
+			<integer>1</integer>
+			<integer>6</integer>
+		</array>
+		<array>
+			<integer>6</integer>
+			<integer>5</integer>
+		</array>
+		<array>
+			<integer>5</integer>
+			<integer>3</integer>
+		</array>
+		<array>
+			<integer>3</integer>
+			<integer>10</integer>
+		</array>
+		<array>
+			<integer>10</integer>
+			<integer>8</integer>
+		</array>
+		<array>
+			<integer>8</integer>
+			<integer>6</integer>
+		</array>
+		<array>
+			<integer>6</integer>
+			<integer>11</integer>
+		</array>
+	</array>
+		<key>SUSTAIN ALL</key>
+	<array>
+		<array>
+			<integer>1</integer>
+			<integer>6</integer>
+		</array>
+		<array>
+			<integer>6</integer>
+			<integer>5</integer>
+		</array>
+		<array>
+			<integer>5</integer>
+			<integer>3</integer>
+		</array>
+		<array>
+			<integer>3</integer>
+			<integer>10</integer>
+		</array>
+		<array>
+			<integer>10</integer>
+			<integer>8</integer>
+		</array>
+		<array>
+			<integer>8</integer>
+			<integer>6</integer>
+		</array>
+		<array>
+			<integer>6</integer>
+			<integer>11</integer>
+		</array>
+		<array>
+			<integer>11</integer>
+			<integer>9</integer>
+		</array>
+		<array>
+			<integer>9</integer>
+			<integer>2</integer>
+		</array>
+		<array>
+			<integer>2</integer>
+			<integer>1</integer>
+		</array>
+		<array>
+			<integer>1</integer>
+			<integer>3</integer>
+		</array>
+		<array>
+			<integer>3</integer>
+			<integer>10</integer>
+		</array>
+		<array>
+			<integer>10</integer>
+			<integer>11</integer>
+		</array>
+	</array>
 	<key>TECHNOLOGY</key>
 	<array>
 		<array>
@@ -2298,6 +2445,17 @@
 		<array>
 			<integer>3</integer>
 			<integer>9</integer>
+		</array>
+	</array>
+	<key>THEM</key>
+	<array>
+		<array>
+			<integer>1</integer>
+			<integer>7</integer>
+		</array>
+		<array>
+			<integer>7</integer>
+			<integer>8</integer>
 		</array>
 	</array>
 	<key>TOGETHER</key>
